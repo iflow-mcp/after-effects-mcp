@@ -1,11 +1,14 @@
 {
-  "name": "after-effects-mcp",
+  "name": "@iflow-mcp/after-effects-mcp",
   "version": "1.0.0",
   "description": "MCP server for Adobe After Effects",
   "main": "build/index.js",
+  "bin": {
+    "after-effects-mcp": "build/index.js"
+  },
   "type": "module",
   "scripts": {
-    "build": "tsc && xcopy .\\src\\scripts .\\build\\scripts /E /I /Y",
+    "build": "tsc && cp -r ./src/scripts ./build/scripts 2>/dev/null || true",
     "start": "node build/index.js",
     "install-bridge": "node install-bridge.js",
     "postinstall": "npm run build"
